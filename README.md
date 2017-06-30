@@ -1,6 +1,6 @@
 ## `rudy-match-path`
 
-This is the `matchPath` function borrowed from *React Router* for general purpose use. It's used by [Rudy](https://github.com/faceyspacey/rudy) and its [<Link /> package](https://github.com/faceyspacey/rudy-link).
+This is the `matchPath` function borrowed from *React Router* for general purpose use. It's used by [Rudy](https://github.com/faceyspacey/rudy) and its [`<Link />` package](https://github.com/faceyspacey/rudy-link).
 
 ## Installation
 
