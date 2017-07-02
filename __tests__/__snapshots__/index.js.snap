@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`match with params 1`] = `
+Object {
+  "isExact": true,
+  "params": Object {
+    "bar": "bar",
+    "baz": "1",
+  },
+  "path": "/foo/:bar/:baz",
+  "url": "/foo/bar/1",
+}
+`;

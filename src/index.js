@@ -1,11 +1,36 @@
+// @flow
 import pathToRegexp from 'path-to-regexp'
+
+type CompileOptions = {
+  end: boolean,
+  strict: boolean
+}
+
+type MatchOptions = {
+  exact?: boolean,
+  strict?: boolean,
+  path?: string
+}
+
+type Compiled = {
+  re: RegExp,
+  keys: Array<{ name: string }>
+}
+
+type Match = {
+  path: string,
+  url: string,
+  isExact: boolean,
+  params: Object
+}
 
 const patternCache = {}
 const cacheLimit = 10000
 let cacheCount = 0
 
-const compilePath = (pattern, options) => {
-  const cacheKey = `${options.end}${options.strict}`
+const compilePath = (pattern: string, options: CompileOptions): Compiled => {
+  const { end, strict } = options
+  const cacheKey = `${end ? 't' : 'f'}${strict ? 't' : 'f'}`
   const cache = patternCache[cacheKey] || (patternCache[cacheKey] = {})
 
   if (cache[pattern]) return cache[pattern]
@@ -22,8 +47,13 @@ const compilePath = (pattern, options) => {
   return compiledPattern
 }
 
-const matchPath = (pathname, options = {}) => {
-  if (typeof options === 'string') options = { path: options }
+const matchPath = (
+  pathname: string,
+  options: string | MatchOptions = {}
+): ?Match => {
+  if (typeof options === 'string') {
+    options = { path: options, exact: false, strict: false }
+  }
 
   const { path = '/', exact = false, strict = false } = options
   const { re, keys } = compilePath(path, { end: exact, strict })
