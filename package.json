@@ -66,12 +66,6 @@
     "travis-github-status": "^1.5.4",
     "webpack": "^3.0.0"
   },
-  "peerDependencies": {
-    "react": "^15.x",
-    "react-redux": "^5.x",
-    "redux": "^3.x",
-    "redux-first-router": "^1.x"
-  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
