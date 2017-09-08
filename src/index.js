@@ -50,6 +50,14 @@ export const compilePath = (
   return compiledPattern
 }
 
+const toPathCache = {}
+
+export const compileParamsToPath = (path: string, params: Object = {}) => {
+  const toPath = toPathCache[path] || pathToRegexp.compile(path)
+  toPathCache[path] = toPath
+  return toPath(params)
+}
+
 const matchPath = (
   pathname: string,
   options: string | MatchOptions = {}

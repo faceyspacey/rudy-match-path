@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`compilePath 1`] = `
+Array [
+  "/foo/blabla",
+  "blabla",
+]
+`;
+
+exports[`compilePath 2`] = `
+Array [
+  Object {
+    "asterisk": false,
+    "delimiter": "/",
+    "name": "bar",
+    "optional": false,
+    "partial": false,
+    "pattern": "[^\\\\/]+?",
+    "prefix": "/",
+    "repeat": false,
+  },
+]
+`;
+
 exports[`match with params 1`] = `
 Object {
   "isExact": true,
