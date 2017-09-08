@@ -28,7 +28,10 @@ const patternCache = {}
 const cacheLimit = 10000
 let cacheCount = 0
 
-export const compilePath = (pattern: string, options: CompileOptions): Compiled => {
+export const compilePath = (
+  pattern: string,
+  options: CompileOptions = {}
+): Compiled => {
   const { end, strict } = options
   const cacheKey = `${end ? 't' : 'f'}${strict ? 't' : 'f'}`
   const cache = patternCache[cacheKey] || (patternCache[cacheKey] = {})
