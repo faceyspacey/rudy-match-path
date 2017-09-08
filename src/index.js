@@ -2,8 +2,8 @@
 import pathToRegexp from 'path-to-regexp'
 
 type CompileOptions = {
-  end: boolean,
-  strict: boolean
+  end?: boolean,
+  strict?: boolean
 }
 
 type MatchOptions = {
@@ -32,7 +32,7 @@ export const compilePath = (
   pattern: string,
   options: CompileOptions = {}
 ): Compiled => {
-  const { end, strict } = options
+  const { end = true, strict = false } = options
   const cacheKey = `${end ? 't' : 'f'}${strict ? 't' : 'f'}`
   const cache = patternCache[cacheKey] || (patternCache[cacheKey] = {})
 
